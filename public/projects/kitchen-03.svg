@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0b0c"/>
+      <stop offset="0.55" stop-color="#151518"/>
+      <stop offset="1" stop-color="#0b0b0c"/>
+    </linearGradient>
+    <linearGradient id="stone" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.04"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="1200" rx="80" fill="url(#bg)"/>
+
+  <rect x="160" y="240" width="1280" height="720" rx="54" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.12"/>
+
+  <path d="M240 380c0-26 21-48 48-48h1016c26 0 48 22 48 48v220c0 26-22 48-48 48H288c-27 0-48-22-48-48V380z" fill="url(#stone)" stroke="#ffffff" stroke-opacity="0.12"/>
+
+  <rect x="260" y="700" width="430" height="220" rx="40" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="720" y="700" width="430" height="220" rx="40" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.12"/>
+
+  <rect x="1180" y="700" width="180" height="220" rx="40" fill="#0b0b0c" fill-opacity="0.55" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="1220" y="740" width="100" height="80" rx="24" fill="#ffffff" fill-opacity="0.08"/>
+
+  <rect x="260" y="430" width="260" height="120" rx="34" fill="#0b0b0c" fill-opacity="0.55"/>
+  <rect x="560" y="430" width="260" height="120" rx="34" fill="#0b0b0c" fill-opacity="0.55"/>
+  <rect x="860" y="430" width="260" height="120" rx="34" fill="#0b0b0c" fill-opacity="0.55"/>
+
+  <text x="220" y="1040" fill="#f4f4f5" fill-opacity="0.88" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI" font-size="34" font-weight="600" letter-spacing="-0.02em">U-shape layout • built-in appliances</text>
+  <text x="220" y="1085" fill="#f4f4f5" fill-opacity="0.62" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI" font-size="22" font-weight="400">Placeholder image — replace with client photos</text>
+</svg>

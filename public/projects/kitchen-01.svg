@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0b0c"/>
+      <stop offset="0.55" stop-color="#141416"/>
+      <stop offset="1" stop-color="#0b0b0c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e7c79a" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.18"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1200" rx="80" fill="url(#bg)"/>
+
+  <circle cx="390" cy="320" r="220" fill="#e7c79a" fill-opacity="0.18" filter="url(#soft)"/>
+  <circle cx="1240" cy="420" r="260" fill="#ffffff" fill-opacity="0.10" filter="url(#soft)"/>
+
+  <rect x="160" y="220" width="1280" height="760" rx="54" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.12"/>
+
+  <rect x="220" y="300" width="560" height="80" rx="26" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+  <rect x="820" y="300" width="540" height="80" rx="26" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.14"/>
+
+  <rect x="220" y="420" width="1140" height="120" rx="32" fill="#0b0b0c" fill-opacity="0.55" stroke="#ffffff" stroke-opacity="0.10"/>
+  <rect x="220" y="566" width="1140" height="28" rx="14" fill="url(#accent)" fill-opacity="0.8"/>
+
+  <rect x="220" y="640" width="360" height="260" rx="34" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="610" y="640" width="360" height="260" rx="34" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="1000" y="640" width="360" height="260" rx="34" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.12"/>
+
+  <path d="M1080 690h200c18 0 32 14 32 32v20c0 18-14 32-32 32h-200c-18 0-32-14-32-32v-20c0-18 14-32 32-32z" fill="#ffffff" fill-opacity="0.06"/>
+  <circle cx="1118" cy="735" r="10" fill="#e7c79a" fill-opacity="0.85"/>
+  <circle cx="1248" cy="735" r="10" fill="#e7c79a" fill-opacity="0.85"/>
+
+  <text x="220" y="965" fill="#f4f4f5" fill-opacity="0.88" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI" font-size="34" font-weight="600" letter-spacing="-0.02em">Modern white cabinetry • black worktop</text>
+  <text x="220" y="1010" fill="#f4f4f5" fill-opacity="0.62" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI" font-size="22" font-weight="400">Placeholder image — replace with client photos</text>
+</svg>

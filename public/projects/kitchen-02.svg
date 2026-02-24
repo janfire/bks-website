@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0b0c"/>
+      <stop offset="0.6" stop-color="#111114"/>
+      <stop offset="1" stop-color="#0b0b0c"/>
+    </linearGradient>
+    <linearGradient id="timber" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e7c79a" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#e7c79a" stop-opacity="0.18"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1200" rx="80" fill="url(#bg)"/>
+
+  <rect x="180" y="200" width="420" height="820" rx="50" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="250" y="270" width="280" height="680" rx="38" fill="url(#timber)"/>
+  <rect x="250" y="270" width="280" height="680" rx="38" fill="#ffffff" fill-opacity="0.04"/>
+
+  <rect x="1000" y="200" width="420" height="820" rx="50" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="1070" y="270" width="280" height="680" rx="38" fill="url(#timber)"/>
+  <rect x="1070" y="270" width="280" height="680" rx="38" fill="#ffffff" fill-opacity="0.04"/>
+
+  <rect x="640" y="320" width="320" height="420" rx="46" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-opacity="0.12"/>
+  <rect x="680" y="360" width="240" height="160" rx="28" fill="#ffffff" fill-opacity="0.06"/>
+  <rect x="680" y="540" width="240" height="160" rx="28" fill="#0b0b0c" fill-opacity="0.55"/>
+
+  <path d="M310 270h160" stroke="#0b0b0c" stroke-opacity="0.35" stroke-width="8" stroke-linecap="round"/>
+  <path d="M310 510h160" stroke="#0b0b0c" stroke-opacity="0.35" stroke-width="8" stroke-linecap="round"/>
+  <path d="M310 740h160" stroke="#0b0b0c" stroke-opacity="0.35" stroke-width="8" stroke-linecap="round"/>
+
+  <path d="M1130 270h160" stroke="#0b0b0c" stroke-opacity="0.35" stroke-width="8" stroke-linecap="round"/>
+  <path d="M1130 510h160" stroke="#0b0b0c" stroke-opacity="0.35" stroke-width="8" stroke-linecap="round"/>
+  <path d="M1130 740h160" stroke="#0b0b0c" stroke-opacity="0.35" stroke-width="8" stroke-linecap="round"/>
+
+  <circle cx="800" cy="220" r="160" fill="#e7c79a" fill-opacity="0.14" filter="url(#glow)"/>
+
+  <text x="220" y="1050" fill="#f4f4f5" fill-opacity="0.88" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI" font-size="34" font-weight="600" letter-spacing="-0.02em">Glass display units • warm timber tones</text>
+  <text x="220" y="1095" fill="#f4f4f5" fill-opacity="0.62" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI" font-size="22" font-weight="400">Placeholder image — replace with client photos</text>
+</svg>
