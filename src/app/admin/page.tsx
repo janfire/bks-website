@@ -19,24 +19,24 @@ export default async function AdminDashboard() {
     return (
         <div className="space-y-10">
             {/* Header */}
-            <div className="flex items-end justify-between">
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                     <div className="text-sm font-medium uppercase tracking-wider text-accent">Overview</div>
                     <h1 className="mt-1 text-3xl font-bold tracking-tight text-foreground">Dashboard</h1>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex w-full items-center gap-3 sm:w-auto">
                     <Link
                         href="/admin/settings"
-                        className="flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition-all hover:bg-accent/10"
+                        className="flex flex-1 items-center justify-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition-all hover:bg-accent/10 sm:flex-none"
                     >
                         <span>Settings</span>
                     </Link>
                     <Link
                         href="/admin/create"
-                        className="group flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-all hover:bg-foreground/90"
+                        className="group flex flex-1 items-center justify-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-semibold text-background transition-all hover:bg-foreground/90 sm:flex-none"
                     >
                         <Plus size={18} />
-                        <span>New Project</span>
+                        <span>Project</span>
                     </Link>
                 </div>
             </div>
