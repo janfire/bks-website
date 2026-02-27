@@ -3,8 +3,29 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { writeFile, mkdir } from "fs/promises";
-import { join } from "path";
+import { v2 as cloudinary } from "cloudinary";
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+async function uploadToCloudinary(buffer: Buffer, filename: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+        cloudinary.uploader.upload_stream(
+            {
+                folder: "bks-projects",
+                public_id: filename,
+                resource_type: "image",
+            },
+            (error, result) => {
+                if (error || !result) return reject(error);
+                resolve(result.secure_url);
+            }
+        ).end(buffer);
+    });
+}
 
 export async function createProject(formData: FormData) {
     const title = formData.get("title") as string;
@@ -18,42 +39,28 @@ export async function createProject(formData: FormData) {
         throw new Error("No images uploaded");
     }
 
-    const uploadDir = join(process.cwd(), "public", "uploads");
-
     try {
-        // Ensure directory exists
-        try {
-            await mkdir(uploadDir, { recursive: true });
-        } catch (e) {
-            console.error("Error creating upload directory", e);
-        }
-
-        // Process images sequentially to avoid SQLite locking issues
         for (const image of images) {
             const bytes = await image.arrayBuffer();
             const buffer = Buffer.from(bytes);
 
-            // Create unique filename
-            const filename = `${Date.now()}-${Math.random().toString(36).substring(7)}-${image.name.replace(/\s/g, "-")}`;
-            const filepath = join(uploadDir, filename);
+            const filename = `${Date.now()}-${Math.random().toString(36).substring(7)}`;
 
-            await writeFile(filepath, buffer);
+            // Upload to Cloudinary instead of local disk
+            const imageSrc = await uploadToCloudinary(buffer, filename);
 
-            const imageSrc = `/uploads/${filename}`;
-
-            // Save to Database
             await prisma.project.create({
                 data: {
                     title,
                     location,
                     imageSrc,
-                    imageAlt: title, // Default alt text
+                    imageAlt: title,
                 },
             });
         }
     } catch (e) {
         console.error("BATCH UPLOAD ERROR:", e);
-        throw e; // Re-throw to ensure the client sees the error, or handle gracefully
+        throw e;
     }
 
     revalidatePath("/gallery");
