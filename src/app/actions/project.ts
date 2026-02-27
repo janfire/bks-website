@@ -3,28 +3,30 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { v2 as cloudinary } from "cloudinary";
-
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
-});
 
 async function uploadToCloudinary(buffer: Buffer, filename: string): Promise<string> {
-    return new Promise((resolve, reject) => {
-        cloudinary.uploader.upload_stream(
-            {
-                folder: "bks-projects",
-                public_id: filename,
-                resource_type: "image",
-            },
-            (error, result) => {
-                if (error || !result) return reject(error);
-                resolve(result.secure_url);
-            }
-        ).end(buffer);
-    });
+    const base64 = buffer.toString("base64");
+    const dataUri = `data:image/jpeg;base64,${base64}`;
+
+    const body = new FormData();
+    body.append("file", dataUri);
+    body.append("upload_preset", "bks_unsigned");
+    body.append("folder", "bks-projects");
+    body.append("public_id", filename);
+
+    const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+    const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+        { method: "POST", body }
+    );
+
+    if (!response.ok) {
+        const error = await response.text();
+        throw new Error(`Cloudinary upload failed: ${error}`);
+    }
+
+    const data = await response.json();
+    return data.secure_url;
 }
 
 export async function createProject(formData: FormData) {
@@ -43,10 +45,8 @@ export async function createProject(formData: FormData) {
         for (const image of images) {
             const bytes = await image.arrayBuffer();
             const buffer = Buffer.from(bytes);
-
             const filename = `${Date.now()}-${Math.random().toString(36).substring(7)}`;
 
-            // Upload to Cloudinary instead of local disk
             const imageSrc = await uploadToCloudinary(buffer, filename);
 
             await prisma.project.create({
