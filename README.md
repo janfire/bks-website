@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BKS Kitchens & Cupboards Website
+
+A modern, full-stack web application built for BKS Kitchens & Cupboards, a business specializing in premium kitchen and built-in cupboard design, fabrication, and installation in Pretoria North. 
+
+## Key Features
+
+- **Dynamic Portfolio:** Showcases recent projects with images hosted on Cloudinary.
+- **Customer Inquiries:** Integrated contact form utilizing Resend for email notifications.
+- **Admin Dashboard:** Secure, authenticated admin area (powered by NextAuth) to manage projects and view incoming leads.
+- **Tech Stack:** Built with Next.js (App Router), Tailwind CSS, Radix UI, Prisma (PostgreSQL), and TypeScript.
 
 ## Getting Started
 
